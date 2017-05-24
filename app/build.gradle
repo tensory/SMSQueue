@@ -13,12 +13,20 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    def dbVersion = 1 as String
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    buildTypes.each {
+        it.buildConfigField "int", "DATABASE_VERSION", dbVersion
+    }
+
 }
 
 dependencies {
@@ -30,10 +38,13 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
+    // Dagger2
+    compile "com.google.dagger:dagger:$dagger2_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger2_version"
+
     // Room persistence
     compile "android.arch.persistence.room:runtime:$room_version"
     // Use kapt, the Kotlin annotation processor, not annotationProcessor
-    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     kapt "android.arch.persistence.room:compiler:$room_version"
 }
 repositories {
