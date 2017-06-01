@@ -12,7 +12,7 @@ class PersistenceModule {
 
     @Provides
     @Singleton
-    fun getAppDatabase(application: Application): ApplicationDatabase = Room.databaseBuilder(
+    fun providesAppDatabase(application: Application): ApplicationDatabase = Room.databaseBuilder(
             application.applicationContext,
             ApplicationDatabase::class.java,
             "application-data")
