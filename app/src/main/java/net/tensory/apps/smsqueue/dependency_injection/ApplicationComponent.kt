@@ -3,7 +3,7 @@ package net.tensory.apps.smsqueue.dependency_injection
 import android.app.Application
 import dagger.Component
 import net.tensory.apps.smsqueue.SmsQueueApplication
-import net.tensory.apps.smsqueue.data.ApplicationDatabase
+import net.tensory.apps.smsqueue.data.persistence.ApplicationDatabase
 import javax.inject.Singleton
 
 @Singleton

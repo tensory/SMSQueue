@@ -4,7 +4,7 @@ import android.app.Application
 import android.arch.persistence.room.Room
 import dagger.Module
 import dagger.Provides
-import net.tensory.apps.smsqueue.data.ApplicationDatabase
+import net.tensory.apps.smsqueue.data.persistence.ApplicationDatabase
 import javax.inject.Singleton
 
 @Module

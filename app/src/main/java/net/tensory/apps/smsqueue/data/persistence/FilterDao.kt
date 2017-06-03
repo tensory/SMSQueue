@@ -1,4 +1,4 @@
-package net.tensory.apps.smsqueue.data
+package net.tensory.apps.smsqueue.data.persistence
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
