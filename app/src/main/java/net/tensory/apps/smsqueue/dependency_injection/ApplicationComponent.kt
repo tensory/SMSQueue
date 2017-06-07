@@ -11,6 +11,6 @@ import javax.inject.Singleton
 interface ApplicationComponent {
     fun inject(application: SmsQueueApplication)
 
-    fun application(): Application
+    fun application(): SmsQueueApplication
     fun applicationDatabase(): ApplicationDatabase
 }
