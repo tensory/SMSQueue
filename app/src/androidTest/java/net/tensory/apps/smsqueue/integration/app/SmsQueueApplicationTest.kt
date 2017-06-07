@@ -19,7 +19,7 @@ class SmsQueueApplicationTest {
     }
 
     @Test
-    fun application_withUserWithoutFilters_hasNoFilters() {
+    fun application_withoutFilters_hasNoFilters() {
         assertThat("Application has no filters set", application.filters.isEmpty())
     }
 
@@ -30,7 +30,7 @@ class SmsQueueApplicationTest {
 
         // save user
 
-        application.reload()
+        application.reloadCache()
         assertThat("At least one filter is defined", application.filters.isNotEmpty())
     }
 }

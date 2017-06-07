@@ -13,4 +13,5 @@ interface ApplicationComponent {
 
     fun application(): SmsQueueApplication
     fun applicationDatabase(): ApplicationDatabase
+
 }

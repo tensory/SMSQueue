@@ -14,7 +14,7 @@ class SmsQueueApplication : Application() {
         lateinit var applicationComponent: ApplicationComponent
     }
 
-    var filters: Map<PhoneNumber, Rule> = mutableMapOf()
+    var filters: MutableMap<PhoneNumber, MutableList<Rule>> = mutableMapOf()
 
     /**
      * What needs to happen with filters?
@@ -57,7 +57,22 @@ class SmsQueueApplication : Application() {
         // Persist the filters as json into the user DAO.
     }
 
-    fun reload() {
-        // Load in-memory cache data from User object.
+    fun reloadCache() {
+        insertRulesFromUser(
+                applicationComponent.applicationDatabase().userDao().getAll().first())
     }
+
+//    fun populateFilters(filters: List<Filter>) {
+//
+//        // now I have an extra function with no test...
+//        // and I'm not sure I like this at all.
+//        // how to solve?
+//        // rather than representing the rule ID in the filters object on Application,
+//        // construct Rules from the result set of the query.
+//        // decide whether a User object or a relation that maps user_id:rule_id:trigger is really required
+//        filtersList.forEach { filter ->
+//            filters.get(filter.phoneNumber)?.add(filter.rule) ?:
+//                    filters.put(filter.phoneNumber, mutableListOf(filter.rule))
+//        }
+//    }
 }
