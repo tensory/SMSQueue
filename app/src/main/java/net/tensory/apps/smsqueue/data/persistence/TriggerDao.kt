@@ -4,14 +4,13 @@ import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
-import net.tensory.apps.smsqueue.data.models.Filter
+import net.tensory.apps.smsqueue.data.models.Trigger
 
 @Dao
-interface FilterDao {
+interface TriggerDao {
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(trigger: Trigger)
 
-    @Insert(onConflict = OnConflictStrategy.FAIL)
-    fun insert(filter: Filter)
-
-    @Query("SELECT * from filter")
-    fun getAll(): List<Filter>
+    @Query("SELECT * from trigger")
+    fun getAll(): List<Trigger>
 }

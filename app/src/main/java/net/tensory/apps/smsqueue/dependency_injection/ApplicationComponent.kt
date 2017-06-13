@@ -4,6 +4,7 @@ import android.app.Application
 import dagger.Component
 import net.tensory.apps.smsqueue.SmsQueueApplication
 import net.tensory.apps.smsqueue.data.persistence.ApplicationDatabase
+import net.tensory.apps.smsqueue.ui.MainActivity
 import javax.inject.Singleton
 
 @Singleton
@@ -13,5 +14,4 @@ interface ApplicationComponent {
 
     fun application(): SmsQueueApplication
     fun applicationDatabase(): ApplicationDatabase
-
 }
